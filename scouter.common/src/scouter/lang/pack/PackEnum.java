@@ -37,6 +37,7 @@ public class PackEnum {
 
 	public final static byte ALERT = 70;
 	public final static byte OBJECT = 80;
+	public final static byte SLOW_QUERY=90;
 
 	public static Pack create(byte p) {
 		switch (p) {
