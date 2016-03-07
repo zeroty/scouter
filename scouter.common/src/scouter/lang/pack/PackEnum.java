@@ -61,6 +61,8 @@ public class PackEnum {
 			return new StackPack();
 		case SUMMARY:
 			return new SummaryPack();
+		case SLOW_QUERY:
+			return new SlowQueryPack();
 		default:
 			throw new RuntimeException("Unknown pack type= " + p);
 		}

@@ -65,10 +65,10 @@ public class Configure extends Thread {
 	public boolean log_udp_multipacket = false;
 	public boolean log_expired_multipacket = true;
 	public boolean log_udp_packet = false;
-	public boolean log_udp_counter = false;
+	public boolean log_udp_counter = true;
 	public boolean log_udp_xlog = false;
 	public boolean log_udp_profile = false;
-	public boolean log_udp_text = false;
+	public boolean log_udp_text = true;
 	public boolean log_udp_alert = false;
 	public boolean log_udp_object = false;
 	public boolean log_udp_status = false;
@@ -76,6 +76,7 @@ public class Configure extends Thread {
 	public boolean log_udp_summary = false;
 	public boolean log_service_handler_list = false;
 	public boolean log_rotation_enabled = true;
+	public boolean log_udp_slow_query = false;
 	public int log_keep_days = 31;
 	public boolean log_sql_parsing_fail_enabled = false;
 
