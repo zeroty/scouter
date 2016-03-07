@@ -6,6 +6,7 @@ import scouter.io.DataInputX;
 import scouter.io.DataOutputX;
 
 public class SlowQueryPack implements Pack {
+	public int objHash;
 	public String startTime;
 	public String user;
 	public String host;
@@ -18,6 +19,7 @@ public class SlowQueryPack implements Pack {
 	public String rowsExamined;
 	public int sqlHash;
 	
+	
 	@Override
 	public byte getPackType() {
 		return PackEnum.SLOW_QUERY;
@@ -25,6 +27,7 @@ public class SlowQueryPack implements Pack {
 
 	@Override
 	public void write(DataOutputX out) throws IOException {
+		out.writeInt(objHash);
 		out.writeText(startTime);
 		out.writeText(user);
 		out.writeText(host);
@@ -40,6 +43,7 @@ public class SlowQueryPack implements Pack {
 
 	@Override
 	public Pack read(DataInputX in) throws IOException {
+		this.objHash = in.readInt();
 		this.startTime = in.readText();
 		this.user = in.readText();
 		this.host = in.readText();

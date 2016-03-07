@@ -20,7 +20,7 @@ package scouter.server.core.cache;
 
 import scouter.util.IntSet;
 
-object SlowSqlCache {
+object SlowQueryCache {
 
     val cache = new SlowQueryLoopCache[Array[Byte]](20480);
 
