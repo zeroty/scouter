@@ -48,6 +48,8 @@ import scouter.util.StringUtil
 import scouter.server.core.SummaryCore
 import scouter.lang.pack.SummaryPack
 import scouter.lang.pack.SummaryPack
+import scouter.server.core.SlowQueryCore
+import scouter.lang.pack.SlowQueryPack
 object NetDataProcessor {
     class NetData(_data: Array[Byte], _addr: InetAddress) {
         val addr = _addr
@@ -189,6 +191,11 @@ object NetDataProcessor {
                 SummaryCore.add(p.asInstanceOf[SummaryPack])
                 if (conf.log_udp_summary) {
                     System.out.println("DEBUG UDP SUMMARY: " + p)
+                }
+             case PackEnum.SLOW_QUERY =>
+                SlowQueryCore.add(p.asInstanceOf[SlowQueryPack]);
+                if(conf.log_udp_slow_query) {
+                    System.out.println("DEBUG UDP SLOWQUERY: " + p);
                 }
             case _ =>
                 System.out.println(p)

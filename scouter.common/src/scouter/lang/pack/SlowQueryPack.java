@@ -44,7 +44,7 @@ public class SlowQueryPack implements Pack {
 		this.user = in.readText();
 		this.host = in.readText();
 		this.threadId = in.readText();
-		this.db = in.readText();
+		this.db = in.readText(); 
 		this.qcHit = in.readBoolean();
 		this.queryTime = in.readText();
 		this.lockTime = in.readText();
