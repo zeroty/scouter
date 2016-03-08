@@ -7,17 +7,18 @@ import scouter.server.Logger
 import scouter.io.DataOutputX
 import scouter.server.core.cache.SlowQueryCache
 import scouter.server.db.SlowQueryWR
+import scouter.server.db.DBCtr
 object SlowQueryCore {
   val conf = Configure.getInstance();
-  val queue = new RequestQueue[SlowQueryPack](conf.xlog_queue_size); 
+  val queue = new RequestQueue[SlowQueryPack](DBCtr.LARGE_MAX_QUE_SIZE); 
   
-  ThreadScala.startDaemon("scouter.server.core.XLogCore", { CoreRun.running })  {
+  ThreadScala.startDaemon("scouter.server.core.SlowQuerCore", { CoreRun.running })  {
      val m = queue.get();
      ServerStat.put("slowquery.core.queue", queue.size());
      val b = new DataOutputX().writePack(m).toByteArray();
-     SlowQueryCache.put(m.objHash, m.queryTime.toInt, b);
-     SlowQueryWR.add(m.startTime.toInt, m.queryTime.toInt, b);
-    
+     SlowQueryCache.put(m.objHash, m.queryTime, b);
+     SlowQueryWR.add(m.time, m.queryTime, b);
+     
   }
   
   def add(p: SlowQueryPack) {

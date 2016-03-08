@@ -6,6 +6,7 @@ import scouter.io.DataInputX;
 import scouter.io.DataOutputX;
 
 public class SlowQueryPack implements Pack {
+	public long time;
 	public int objHash;
 	public String startTime;
 	public String user;
@@ -13,11 +14,12 @@ public class SlowQueryPack implements Pack {
 	public String threadId;
 	public String db;
 	public boolean qcHit;
-	public String queryTime;
-	public String lockTime;
+	public int queryTime;
+	public int lockTime;
 	public String rowsSent;
 	public String rowsExamined;
 	public int sqlHash;
+	public int normalizedSqlHash;
 	
 	
 	@Override
@@ -27,6 +29,7 @@ public class SlowQueryPack implements Pack {
 
 	@Override
 	public void write(DataOutputX out) throws IOException {
+		out.writeLong(time);
 		out.writeInt(objHash);
 		out.writeText(startTime);
 		out.writeText(user);
@@ -34,15 +37,17 @@ public class SlowQueryPack implements Pack {
 		out.writeText(threadId);
 		out.writeText(db);
 		out.writeBoolean(qcHit);
-		out.writeText(queryTime);
-		out.writeText(lockTime);
+		out.writeInt(queryTime);
+		out.writeInt(lockTime);
 		out.writeText(rowsSent);
 		out.writeText(rowsExamined);
 		out.writeInt(sqlHash);
+		out.writeInt(normalizedSqlHash);
 	}
 
 	@Override
 	public Pack read(DataInputX in) throws IOException {
+		this.time = in.readLong();
 		this.objHash = in.readInt();
 		this.startTime = in.readText();
 		this.user = in.readText();
@@ -50,11 +55,12 @@ public class SlowQueryPack implements Pack {
 		this.threadId = in.readText();
 		this.db = in.readText(); 
 		this.qcHit = in.readBoolean();
-		this.queryTime = in.readText();
-		this.lockTime = in.readText();
+		this.queryTime = in.readInt();
+		this.lockTime = in.readInt();
 		this.rowsSent = in.readText();
 		this.rowsExamined = in.readText();
 		this.sqlHash = in.readInt();
+		this.normalizedSqlHash = in.readInt();
 		return this;
 	}
 
