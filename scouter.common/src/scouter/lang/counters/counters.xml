@@ -76,7 +76,7 @@ mrhit : MariaDB HitRatio
 			<Counter name="ProcessingTime" disp="Processing Time" unit="sec" icon="proc_time.png" />
 			<Counter name="BytesReceived" disp="Bytes Received" unit="bytes" icon="bytes_recv.png" />
 		</Family>
-		<Family name="maria" master="048" mrcon="true" mract="true" mrres="true" mrhit="true">
+		<Family name="mariadb" master="048" mrcon="true" mract="true" mrres="true" mrhit="true">
 			<Counter name="001" disp="Aborted Clients" unit="cnt" icon="database.png" />
 			<Counter name="002" disp="Aborted Connects " unit="cnt" icon="database.png" />
 			<Counter name="003" disp="Bytes Received" unit="bytes" icon="database.png" />
@@ -160,5 +160,6 @@ mrhit : MariaDB HitRatio
 		<ObjectType name="datasource" family="datasource" disp="DataSource" sub-object="true" />
 		<ObjectType name="reqproc" family="reqproc" disp="RequestProc" sub-object="true"/>
 		<ObjectType name="mariaplugin" family="maria" disp="Maria Plugin" />
+		<ObjectType name="mariadb" family="mariadb" disp="MariaDB" />
 	</Types>
 </Counters>
