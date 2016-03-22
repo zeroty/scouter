@@ -35,6 +35,7 @@ SCOUTER can help you.
 ## Documents
  - [Document Home](./scouter.document/index.md)
  - [Quick Start Guide (Quick Installation and Demo)](./scouter.document/main/Quick-Start.md)
+ - [Live Demo(Try to use scouter by connecting on live demo system)](./scouter.document/main/Live-Demo.md)
  - [Client Screen Help](./scouter.document/client/How-To-Use-Client.md)
 
 ## Download
@@ -67,11 +68,18 @@ Scouter has three modules:
   - **SWT & GEF4** : Charts and Diagrams
 <br>
 
+## Facebook
+ - [Scouter APM : Facebook Scouter user group](https://www.facebook.com/groups/scouterapm/)
+
+## How to contribute
+ - **Notice** : Pull request to **dev branch** only allowed.
+ - Please check the development guide below
+   - [Scouter developer guide](./scouter.document/tech/Developer-Guide.md)
+
+
+
 ## Q&A
  - [Google Groups](https://groups.google.com/forum/#!forum/scouter-project)
-
-## Facebook
- - [Facebook Scouter user group](https://www.facebook.com/groups/1525329794448529/)
 
 ## License
 Licensed under the Apache License, Version 2.0

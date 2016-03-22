@@ -198,7 +198,8 @@ object NetDataProcessor {
                     System.out.println("DEBUG UDP SLOWQUERY: " + p);
                 }
             case _ =>
-                System.out.println(p)
+                PackExtProcessChain.doChain(p)
+                //System.out.println(p)
         }
     }
 }
